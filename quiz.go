@@ -43,9 +43,11 @@ func main() {
 	c := make(chan int, 2)
 	timer := time.NewTimer(3 * time.Second)
 	
-	// start quiz in background
+	// start quiz in background 
+	// not sure if this should be a closure (check idioms)
 	go quiz(qs, &correct, c)
 
+	// select blocks on channels until first receive
 	for {
 		select {
 		case <-timer.C:
