@@ -1,0 +1,20 @@
+- first we want to import the csv file
+- there should be a way to read from the csv file
+- two options: 
+	- parse the whole thing first ** go with this
+	- or do the parsing and the testing in one loop
+- so parse the whole thing, probably want a data structure to store the q/a pairs
+	- can make a struct to store question and answer as (strings?)
+	- or can have a map from question to answer ** probably easier, map[string]string
+- then need to show the user the questions on the command line and get input
+	- so need to output to stdout and wait for user input
+	- then parse the input and compare with the answer
+- for part 2, the basic idea is:
+	 - start a timer in the background (go time)
+	 - the timer function should sleep for the limit
+	 - then send a message on a channel when it wakes up
+	 - the main thread stops when it receives on that channel
+- background func needs to send a value each time the user
+	sends something. then the switch blocks on two channels, 
+	the timer one and the questions one
+

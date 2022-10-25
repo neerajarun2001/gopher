@@ -7,16 +7,6 @@ import (
 	"time"
 )
 
-/*
-  - for part 2, the basic idea is:
-	   - start a timer in the background (go time)
-		 - the timer function should sleep for the limit
-		 - then send a message on a channel when it wakes up
-		 - the main thread stops when it receives on that channel
-	- background func needs to send a value each time the user
-	  sends something. then the switch blocks on two channels, 
-		the timer one and the questions one
-*/
 func reportResults(correct, total int) {
 	fmt.Printf("\nYou scored %d/%d!\n", correct, total)
 }
